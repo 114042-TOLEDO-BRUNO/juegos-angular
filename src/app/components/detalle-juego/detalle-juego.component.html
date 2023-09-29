@@ -1,0 +1,13 @@
+<div class="card">
+    <img class="card-img-top mx-auto" [src]="juego.foto" alt="Portada del juego">
+    <div class="card-body">
+    <h5 class="card-title">{{ juego.nombre }}</h5>
+    <p class="card-text">Precio: ${{ juego.precio }}</p>
+    <p class="card-text">Categoría: {{ juego.categoria }}</p>   
+    
+      <div *ngIf="mostrarFormulario">
+        <textarea class="form-control" [(ngModel)]="nuevoComentario"></textarea>
+        <button class="btn btn-success" (click)="enviarComentario()">Enviar Comentario</button>
+    </div>
+    </div>
+</div>

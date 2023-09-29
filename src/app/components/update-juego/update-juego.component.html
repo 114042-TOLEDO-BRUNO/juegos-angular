@@ -1,0 +1,21 @@
+<form #modificarJuegoForm="ngForm" (ngSubmit)="modificarJuego(modificarJuegoForm)">
+    <div *ngIf="mensajeExito" class="text-success">Se actualizo el precio del juego</div>
+
+    <div class="mb-3">
+        <label for="juegoSelect" class="mx-3">Selecciona un Juego: </label>
+        <select id="juegoSelect" name="juego" [(ngModel)]="juegoSeleccionado">
+            <option class="form-control" *ngFor="let juegoSeleccionado of listaJuegos" [ngValue]="juegoSeleccionado">{{ juegoSeleccionado.nombre }}</option>
+        </select>
+    </div>
+
+    <div class="mb-3" [ngClass]="{'has-error': !precioValido}">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="precioInput" required>
+        <div *ngIf="!precioValido" class="text-danger">El precio debe ser mayor a 0 (cero)</div>
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary mb-3">Modificar Juego</button>
+</form>
+

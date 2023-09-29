@@ -1,0 +1,30 @@
+<table class="container table table-hover table-striped">
+    <thead>
+        <tr class="table-active">
+            <th scope="col">Nombre juego</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Detalles</th>
+            <th scope="col">Fecha creacion</th>
+            <th scope="col">Borrar Juego</th>
+            <th scope="col">Comentarios del juego</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-ligth" *ngFor="let juego of localJuegoList">
+            <td>{{juego.nombre | uppercase}}</td>
+            <td>${{ juego.precio | number:"1.2-2"}}</td>
+            <td>{{ juego.categoria | lowercase }}</td>
+            <td>
+                <app-detalle-juego [juego]="juego" (comentarioEnviado)="agregarComentario(juego, $event)"></app-detalle-juego>
+            </td>
+            <td>{{ juego.fecha | juego }}</td>
+            <td><button type="button" class="btn btn-danger" (click)="borrarJuego(juego)">Borrar</button></td>
+            <td>
+                <ul>
+                    <li *ngFor="let comentario of juego.comentarios">{{ comentario }}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

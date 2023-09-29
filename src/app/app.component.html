@@ -1,0 +1,29 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">VIDEO-GAMES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" (click)="mostrarComponente(1)">Agregar Juego</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="mostrarComponente(2)">Modificar Juego</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="mostrarComponente(3)">Listar Juegos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <app-juego *ngIf="indiceComponente === 1"></app-juego>
+    <app-update-juego *ngIf="indiceComponente === 2"></app-update-juego>
+    <app-list-juegos *ngIf="indiceComponente === 3"></app-list-juegos>
+  </div>
+</div>
